@@ -26,7 +26,7 @@ namespace Hotel.Forms
         }
         private void dgv_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex < 0) return;          // заголовок
+            if (e.RowIndex < 0) return;
             int roomId = Convert.ToInt32(dgv.Rows[e.RowIndex].Cells["RoomId"].Value);
             OpenRequest(roomId);
         }
@@ -34,7 +34,7 @@ namespace Hotel.Forms
         private void btnBook_Click(object sender, EventArgs e)
         {
             if (dgv.CurrentRow == null) return;
-            int roomId = Convert.ToInt32(dgv.CurrentRow.Cells["RoomId"].Value);
+            int roomId = Convert.ToInt32(dgv.CurrentRow.Cells["Id"].Value);
             OpenRequest(roomId);
         }
 

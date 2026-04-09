@@ -37,7 +37,7 @@ namespace Hotel.Forms
         private decimal CalcTotal()
         {
             int nights = (dtpCheckOut.Value.Date - dtpCheckIn.Value.Date).Days;
-            var dt = SqlHelper.ExecQuery("SELECT PricePerNight FROM Rooms WHERE RoomId=@r",
+            var dt = SqlHelper.ExecQuery("SELECT PricePerNight FROM Rooms WHERE Id=@r",
                 new System.Data.SqlClient.SqlParameter("@r", _roomId));
             decimal price = (decimal)dt.Rows[0]["PricePerNight"];
             return price * nights;
