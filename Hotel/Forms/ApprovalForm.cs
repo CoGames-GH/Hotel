@@ -7,7 +7,11 @@ namespace Hotel.Forms
 {
     public partial class ApprovalForm : Form
     {
-        public ApprovalForm() { InitializeComponent(); LoadRequests(); }
+        public ApprovalForm() 
+        { 
+            InitializeComponent(); 
+            LoadRequests(); 
+        }
 
         void LoadRequests()
         {
@@ -17,7 +21,7 @@ namespace Hotel.Forms
         private void btnApprove_Click(object sender, EventArgs e)
         {
             if (dgv.CurrentRow == null) return;
-            int id = (int)dgv.CurrentRow.Cells["RequestId"].Value;
+            int id = (int)dgv.CurrentRow.Cells["Id"].Value;
             DbRepository.ApproveRequest(id, true, tbComment.Text);
             LoadRequests();
         }
@@ -25,7 +29,7 @@ namespace Hotel.Forms
         private void btnReject_Click(object sender, EventArgs e)
         {
             if (dgv.CurrentRow == null) return;
-            int id = (int)dgv.CurrentRow.Cells["RequestId"].Value;
+            int id = (int)dgv.CurrentRow.Cells["Id"].Value;
             DbRepository.ApproveRequest(id, false, tbComment.Text);
             LoadRequests();
         }
